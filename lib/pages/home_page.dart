@@ -29,9 +29,7 @@ class _HomePageState extends State<HomePage> {
     Map<String, dynamic> myMap = json.decode(res.body);
     misPokemons = myMap["pokemon"];
 
-    setState(() {
-
-    });
+    setState(() {});
     // misPokemons.forEach((element) {
     //   print("Pokemon: ${element["img"]}");
     // });
@@ -62,14 +60,38 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: misPokemons.length,
-        itemBuilder: (BuildContext context, int index){
-          return ListTile(
-            leading: Image.network(misPokemons[index]["img"]),
-          );
-        },
-      )
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: [
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Text("Bulbasaur",style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    ),),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 7.0,vertical: 4.0),
+                      decoration: BoxDecoration(
+                        color: Color(0xff43ee9d),
+                        borderRadius: BorderRadius.circular(14.0)
+                      ),
+                      child: Text("Grass"),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
