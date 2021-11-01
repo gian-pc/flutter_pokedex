@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -69,24 +68,749 @@ class _HomePageState extends State<HomePage> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(26.0),
             ),
+            color: Color(0xff48D0B0),
             child: Stack(
               children: [
-                Column(
-                  children: [
-                    Text("Bulbasaur",style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold
-                    ),),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 7.0,vertical: 4.0),
-                      decoration: BoxDecoration(
-                        color: Color(0xff43ee9d),
-                        borderRadius: BorderRadius.circular(14.0)
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
                       ),
-                      child: Text("Grass"),
-                    )
-                  ],
-                )
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Card(
+            elevation: 3.0,
+            shadowColor: Colors.white54,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26.0),
+            ),
+            color: Color(0xff48D0B0),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        "Bulbasaur",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xff5DDFC6),
+                            borderRadius: BorderRadius.circular(14.0),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black12.withOpacity(0.06),
+                                  blurRadius: 12.0,
+                                  offset: Offset(2, 5))
+                            ]),
+                        child: Text(
+                          "Grass",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 4.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DDFC6),
+                          borderRadius: BorderRadius.circular(14.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12.withOpacity(0.06),
+                              blurRadius: 12.0,
+                              offset: Offset(2, 5),
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "Poison",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: -26,
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      color: Colors.white.withOpacity(0.35),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Image.network(
+                    "https://www.serebii.net/pokemongo/pokemon/001.png",
+                    width: 140,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ],
             ),
           ),
