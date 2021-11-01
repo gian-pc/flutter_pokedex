@@ -10,6 +10,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List misPokemons = [];
 
+  Map<String, Color> mapColor={
+    "Grass": Color(0xff48D0B0),
+    "Fire": Color(0xffFB6C6C),
+    "Water": Color(0xff76BDFE),
+    "Electric": Color(0xffFFD86F),
+    "Poison": Color(0xff634078),
+    "Psychic": Color(0xff634078),
+    "Bug": Color(0xff48D0B0),
+    "Rock": Color(0xff696969),
+    "Ground": Color(0xffB8860B),
+    "Normal": Color(0xff28C1D2),
+    "Ghost": Color(0xff39335C),
+    "Ice": Color(0xff76BDFE),
+    "Dragon": Color(0xffFB6C6C),
+    "Fighting": Color(0xff28C1D2),
+  };
+
+
   @override
   initState() {
     super.initState();
@@ -69,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(26.0),
                 ),
-                color: Color(0xff48D0B0),
+                color: mapColor[poke["type"][0]],
                 child: Stack(
                   children: [
                     Positioned(
@@ -108,13 +126,13 @@ class _HomePageState extends State<HomePage> {
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 7.0, vertical: 4.0),
                                       decoration: BoxDecoration(
-                                        color: Color(0xff5DDFC6),
+                                        color: mapColor[poke["type"][0]],
                                         borderRadius:
                                             BorderRadius.circular(14.0),
                                         boxShadow: [
                                           BoxShadow(
                                             color: Colors.black12
-                                                .withOpacity(0.06),
+                                                .withOpacity(0.15),
                                             blurRadius: 12.0,
                                             offset: Offset(2, 5),
                                           ),
