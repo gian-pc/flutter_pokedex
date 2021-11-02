@@ -121,7 +121,7 @@ class PokemonDetailPage extends StatelessWidget {
                   ItemInfoWidget(data: pokeDetail["candy"], title: "Candy"),
                   ItemInfoWidget(data: pokeDetail["egg"], title: "Egg"),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
                       children: [
                         Text(
@@ -146,7 +146,7 @@ class PokemonDetailPage extends StatelessWidget {
                                               item.toString(),
                                             ),
                                             avatar: CircleAvatar(
-                                              backgroundColor: Colors.redAccent.withOpacity(0.8),
+                                              backgroundColor: Colors.blueAccent.withOpacity(0.8),
                                               child: Text('M',style: TextStyle(color: Colors.white),),
                                             ),
                                           ),
@@ -166,7 +166,58 @@ class PokemonDetailPage extends StatelessWidget {
                                     ],
                             ),
                           ),
-                        )
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Weaknesses: ",
+                          style: TextStyle(
+                              color: Colors.black87.withOpacity(0.5),
+                              fontSize: 17.0),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: pokeDetail["weaknesses"] != null
+                                  ? pokeDetail["weaknesses"]
+                                  .map<Widget>(
+                                    (item) => Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                                  child: Chip(
+                                    backgroundColor: Colors.white,
+                                    elevation: 2,
+                                    label: Text(
+                                      item.toString(),
+                                    ),
+                                    avatar: CircleAvatar(
+                                      backgroundColor: Colors.redAccent.withOpacity(0.8),
+                                      child: Text('W',style: TextStyle(color: Colors.white),),
+                                    ),
+                                  ),
+                                ),
+                              )
+                                  .toList()
+                                  : [
+                                Text(
+                                  "None",
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    color:
+                                    Colors.black87.withOpacity(0.7),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   )
