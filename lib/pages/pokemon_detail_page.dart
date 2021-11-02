@@ -22,73 +22,124 @@ class PokemonDetailPage extends StatelessWidget {
             )
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        pokeDetail["name"],
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 40.0,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Row(
+                        children: pokeDetail["type"]
+                            .map<Widget>(
+                              (item) => ItemTypeWidget(
+                                type: item,
+                                type2: pokeDetail["type"][0],
+                              ),
+                            )
+                            .toList(),
+                      )
+                    ],
+                  ),
+                  Text(
+                    "#${pokeDetail["num"]}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 150,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      'assets/images/pokeball.png',
+                      fit: BoxFit.cover,
+                      color: Colors.white.withOpacity(0.34),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Image.network(
+                      pokeDetail["img"],
+                      fit: BoxFit.cover,
+                      height: 140.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(14.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Column(
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Text(
+                      "About",
+                      style: TextStyle(
+                        color: Colors.black87.withOpacity(0.7),
+                        fontSize: 21.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 60.0),
+                        child: Divider(
+                          thickness: 0.6,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          pokeDetail["name"],
+                          "Height:",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40.0,
-                              fontWeight: FontWeight.w800),
+                            color: Colors.black87,
+                            fontSize: 17.0,
+                          ),
                         ),
-                        Row(
-                          children: pokeDetail["type"]
-                              .map<Widget>(
-                                (item) => ItemTypeWidget(
-                                  type: item,
-                                  type2: pokeDetail["type"][0],
-                                ),
-                              )
-                              .toList(),
-                        )
+                        Text(
+                          pokeDetail["height"],
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.black87.withOpacity(0.7),
+                              fontWeight: FontWeight.w700),
+                        ),
                       ],
-                    ),
-                    Text(
-                      "#${pokeDetail["num"]}",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.w700,
-                      ),
                     )
                   ],
                 ),
               ),
-              Container(
-                height: 150,
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment:Alignment.center,
-                      child: Image.asset(
-                        'assets/images/pokeball.png',
-                        fit: BoxFit.cover,
-                        color: Colors.white.withOpacity(0.34),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Image.network(
-                        pokeDetail["img"],
-                        fit: BoxFit.cover,
-                        height: 140.0,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ));
   }
 }
