@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_pokedex/pages/pokemon_detail_page.dart';
 import 'package:flutter_codigo3_pokedex/utils/colors.dart';
+import 'package:flutter_codigo3_pokedex/widgets/item_type_widget.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -109,27 +110,9 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                                 children: poke["type"]
                                     .map<Widget>(
-                                      (type) => Container(
-                                        margin: EdgeInsets.symmetric(vertical: 4.0),
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 7.0, vertical: 4.0),
-                                        decoration: BoxDecoration(
-                                          color: mapColor[poke["type"][0]],
-                                          borderRadius:
-                                              BorderRadius.circular(14.0),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black12
-                                                  .withOpacity(0.15),
-                                              blurRadius: 12.0,
-                                              offset: Offset(2, 5),
-                                            ),
-                                          ],
-                                        ),
-                                        child: Text(
-                                          type,
-                                          style: TextStyle(color: Colors.white),
-                                        ),
+                                      (item) => ItemTypeWidget(
+                                        type: item,
+                                        type2:poke["type"][0],
                                       ),
                                     )
                                     .toList())
@@ -159,3 +142,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
