@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Map<String, Color> mapColor={
+Map<String, Color> mapColor = {
   "Grass": Color(0xff48D0B0),
   "Fire": Color(0xffFB6C6C),
   "Water": Color(0xff76BDFE),

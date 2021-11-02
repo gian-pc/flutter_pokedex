@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() async {
-    print("Obteniendo data....");
     String path =
         "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
     Uri _uri = Uri.parse(path);
@@ -65,82 +64,77 @@ class _HomePageState extends State<HomePage> {
       body: GridView.count(
         crossAxisCount: 2,
         children: misPokemons
-            .map(
-              (poke) => GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PokemonDetailPage(pokeDetail: poke,)));
-                },
-                child: Card(
-                  elevation: 3.0,
-                  shadowColor: Colors.white54,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(26.0),
-                  ),
-                  color: mapColor[poke["type"][0]],
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        bottom: -30,
-                        right: -26,
-                        child: Container(
-                          height: 120,
-                          width: 120,
-                          child: Image.asset(
-                            'assets/images/pokeball.png',
-                            color: Colors.white.withOpacity(0.35),
+            .map((poke) => GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => PokemonDetailPage(pokeDetail: poke)));
+                  },
+                  child: Card(
+                    elevation: 3.0,
+                    shadowColor: Colors.white54,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(26.0),
+                    ),
+                    color: mapColor[poke["type"][0]],
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          bottom: -30,
+                          right: -26,
+                          child: Container(
+                            height: 120,
+                            width: 120,
+                            child: Image.asset(
+                              'assets/images/pokeball.png',
+                              color: Colors.white.withOpacity(0.35),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 15),
-                            Text(
-                              poke["name"],
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 15),
+                              Text(
+                                poke["name"],
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                                children: poke["type"]
-                                    .map<Widget>(
-                                      (item) => ItemTypeWidget(
-                                        type: item,
-                                        type2:poke["type"][0],
-                                      ),
-                                    )
-                                    .toList())
-                          ],
+                              SizedBox(height: 10),
+                              Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: poke["type"]
+                                      .map<Widget>(
+                                        (item) => ItemTypeWidget(
+                                          type: item,
+                                          type2: poke["type"][0],
+                                        ),
+                                      )
+                                      .toList())
+                            ],
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Image.network(
-                          poke["img"],
-                          width: 140,
-                          fit: BoxFit.cover,
-                          errorBuilder: (BuildContext context, Object exc,
-                              StackTrace? stack) {
-                            return Container();
-                          },
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Image.network(
+                            poke["img"],
+                            width: 140,
+                            fit: BoxFit.cover,
+                            errorBuilder: (BuildContext context, Object exc,
+                                StackTrace? stack) {
+                              return Container();
+                            },
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ),
-            )
-            .toList(),
+                )).toList(),
       ),
     );
   }
 }
-
-
