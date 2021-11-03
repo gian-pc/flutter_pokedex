@@ -27,22 +27,36 @@ class Pokemon {
     this.nextEvolution,
   });
 
-
-  Map<String,dynamic> toJson()=>{
-    "id":id,
-    "num": num,
-    "name": name,
-    "img":img,
-    "type":type,
-    "height":height,
-    "weight":weight,
-    "candy":candy,
-    "egg":egg,
-    "multipliers":multipliers,
-    "weaknesses":weaknesses,
-    "next_evolution":nextEvolution,
-  };
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "num": num,
+        "name": name,
+        "img": img,
+        "type": List<dynamic>.from(type.map((x) => x)),
+        "height": height,
+        "weight": weight,
+        "candy": candy,
+        "egg": egg,
+        "multipliers": List<dynamic>.from((multipliers ??[]).map((x) => x)),
+        "weaknesses": List<dynamic>.from((weaknesses ??[]).map((x) => x)),
+        "next_evolution": List<dynamic>.from((nextEvolution ??[]).map((x) => x)),
+      };
 
   //Json Map -> Objeto de tipo Pokemon
 
+  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
+    id: json["id"],
+    num: json["num"],
+    name: json["name"],
+    img: json["img"],
+    //type: json["type"] as List<String>,
+    type: List<String>.from(json["type"].map((x)=>x)),
+    height: json["height"],
+    weight: json["weight"],
+    candy: json["candy"],
+    egg: json["egg"],
+    multipliers: json["multipliers"]!=null? List<double>.from(json["multipliers"].map((e)=>e.toDouble())):[],
+    weaknesses: json["weaknesses"]!=null? List<String>.from(json["weaknesses"].map((e)=>e)):[],
+    nextEvolution: json["next_evolution"]!=null? List<Map<String,String>>.from(json["next_evolution"].map((e)=>e)):[],
+  );
 }
