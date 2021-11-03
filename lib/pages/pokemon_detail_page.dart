@@ -138,7 +138,8 @@ class PokemonDetailPage extends StatelessWidget {
                                   ? pokeDetail["multipliers"]
                                       .map<Widget>(
                                         (item) => Padding(
-                                          padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 3.0),
                                           child: Chip(
                                             backgroundColor: Colors.white,
                                             elevation: 2,
@@ -146,8 +147,13 @@ class PokemonDetailPage extends StatelessWidget {
                                               item.toString(),
                                             ),
                                             avatar: CircleAvatar(
-                                              backgroundColor: Colors.blueAccent.withOpacity(0.8),
-                                              child: Text('M',style: TextStyle(color: Colors.white),),
+                                              backgroundColor: Colors.blueAccent
+                                                  .withOpacity(0.8),
+                                              child: Text(
+                                                'M',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -170,7 +176,6 @@ class PokemonDetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
@@ -187,34 +192,96 @@ class PokemonDetailPage extends StatelessWidget {
                             child: Row(
                               children: pokeDetail["weaknesses"] != null
                                   ? pokeDetail["weaknesses"]
-                                  .map<Widget>(
-                                    (item) => Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 3.0),
-                                  child: Chip(
-                                    backgroundColor: Colors.white,
-                                    elevation: 2,
-                                    label: Text(
-                                      item.toString(),
-                                    ),
-                                    avatar: CircleAvatar(
-                                      backgroundColor: Colors.redAccent.withOpacity(0.8),
-                                      child: Text('W',style: TextStyle(color: Colors.white),),
-                                    ),
-                                  ),
-                                ),
-                              )
-                                  .toList()
+                                      .map<Widget>(
+                                        (item) => Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 3.0),
+                                          child: Chip(
+                                            backgroundColor: Colors.white,
+                                            elevation: 2,
+                                            label: Text(
+                                              item.toString(),
+                                            ),
+                                            avatar: CircleAvatar(
+                                              backgroundColor: Colors.redAccent
+                                                  .withOpacity(0.8),
+                                              child: Text(
+                                                'W',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                      .toList()
                                   : [
-                                Text(
-                                  "None",
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    color:
-                                    Colors.black87.withOpacity(0.7),
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
+                                      Text(
+                                        "None",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          color:
+                                              Colors.black87.withOpacity(0.7),
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Next Evolution: ",
+                          style: TextStyle(
+                              color: Colors.black87.withOpacity(0.5),
+                              fontSize: 17.0),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: pokeDetail["next_evolution"] != null
+                                  ? pokeDetail["next_evolution"]
+                                      .map<Widget>(
+                                        (item) => Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 3.0),
+                                          child: Chip(
+                                            backgroundColor: Colors.white,
+                                            elevation: 2,
+                                            label: Text(
+                                              item["name"].toString(),
+                                            ),
+                                            avatar: CircleAvatar(
+                                              backgroundColor: Colors.purpleAccent
+                                                  .withOpacity(0.8),
+                                              child: Text(
+                                                'N',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                      .toList()
+                                  : [
+                                      Text(
+                                        "None",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          color:
+                                              Colors.black87.withOpacity(0.7),
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
                             ),
                           ),
                         ),
