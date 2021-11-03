@@ -10,7 +10,7 @@ class Pokemon {
   String egg;
   List<double>? multipliers;
   List<String>? weaknesses;
-  List<Map<String, String>>? nextEvolution;
+  List<Map<String, dynamic>>? nextEvolution;
 
   Pokemon({
     required this.id,
@@ -57,6 +57,6 @@ class Pokemon {
     egg: json["egg"],
     multipliers: json["multipliers"]!=null? List<double>.from(json["multipliers"].map((e)=>e.toDouble())):[],
     weaknesses: json["weaknesses"]!=null? List<String>.from(json["weaknesses"].map((e)=>e)):[],
-    nextEvolution: json["next_evolution"]!=null? List<Map<String,String>>.from(json["next_evolution"].map((e)=>e)):[],
+    nextEvolution: json["next_evolution"]!=null? List<Map<String,dynamic>>.from(json["next_evolution"].map((e)=>e)):[],
   );
 }

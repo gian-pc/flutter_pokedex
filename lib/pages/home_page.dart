@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_pokedex/models/pokemon_model.dart';
 import 'package:flutter_codigo3_pokedex/pages/pokemon_detail_page.dart';
 import 'package:flutter_codigo3_pokedex/utils/colors.dart';
 import 'package:flutter_codigo3_pokedex/widgets/item_type_widget.dart';
@@ -12,6 +13,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List misPokemons = [];
+
+  List<Pokemon> misPokemons2 = [];
 
   @override
   initState() {
@@ -29,7 +32,9 @@ class _HomePageState extends State<HomePage> {
 
     Map<String, dynamic> myMap = json.decode(res.body);
     misPokemons = myMap["pokemon"];
+    misPokemons2 = myMap["pokemon"].map<Pokemon>((item)=>Pokemon.fromJson(item)).toList();
 
+    print("22222222: ${misPokemons2[150].name}");
     setState(() {});
     // misPokemons.forEach((element) {
     //   print("Pokemon: ${element["img"]}");
@@ -63,10 +68,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        children: misPokemons
+        children: misPokemons2
             .map((poke) => GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => PokemonDetailPage(pokeDetail: poke)));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => PokemonDetailPage(pokeDetail: poke)));
                   },
                   child: Card(
                     elevation: 3.0,
@@ -74,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.0),
                     ),
-                    color: mapColor[poke["type"][0]],
+                    color: mapColor[poke.type[0]],
                     child: Stack(
                       children: [
                         Positioned(
@@ -96,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               SizedBox(height: 15),
                               Text(
-                                poke["name"],
+                                poke.name,
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,
@@ -106,11 +111,11 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(height: 10),
                               Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: poke["type"]
+                                  children: poke.type
                                       .map<Widget>(
                                         (item) => ItemTypeWidget(
                                           type: item,
-                                          type2: poke["type"][0],
+                                          type2: poke.type[0],
                                         ),
                                       )
                                       .toList())
@@ -121,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                           bottom: 0,
                           right: 0,
                           child: Image.network(
-                            poke["img"],
+                            poke.img,
                             width: 140,
                             fit: BoxFit.cover,
                             errorBuilder: (BuildContext context, Object exc,
