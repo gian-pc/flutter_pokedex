@@ -32,13 +32,17 @@ class _HomePageState extends State<HomePage> {
 
     Map<String, dynamic> myMap = json.decode(res.body);
     misPokemons = myMap["pokemon"];
-    misPokemons2 = myMap["pokemon"].map<Pokemon>((item)=>Pokemon.fromJson(item)).toList();
 
-    print("22222222: ${misPokemons2[150].name}");
-    setState(() {});
-    // misPokemons.forEach((element) {
-    //   print("Pokemon: ${element["img"]}");
+    misPokemons2 = myMap["pokemon"].map<Pokemon>((item) => Pokemon.fromJson(item)).toList();
+
+    // Código similar de misPokemons2:
+
+    // myMap["pokemon"].forEach((item) {
+    //   Pokemon poke = new Pokemon.fromJson(item);
+    //   misPokemons2.add(poke);
     // });
+
+    setState(() {});
   }
 
   @override
@@ -71,7 +75,7 @@ class _HomePageState extends State<HomePage> {
         children: misPokemons2
             .map((poke) => GestureDetector(
                   onTap: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => PokemonDetailPage(pokeDetail: poke)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => PokemonDetailPage(pokeDetail: poke)));
                   },
                   child: Card(
                     elevation: 3.0,
@@ -138,7 +142,8 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                )).toList(),
+                ))
+            .toList(),
       ),
     );
   }

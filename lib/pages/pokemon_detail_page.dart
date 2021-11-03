@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_pokedex/models/pokemon_model.dart';
 import 'package:flutter_codigo3_pokedex/utils/colors.dart';
 import 'package:flutter_codigo3_pokedex/widgets/item_type_widget.dart';
 
 class PokemonDetailPage extends StatelessWidget {
-  Map pokeDetail;
+  Pokemon pokeDetail;
 
   PokemonDetailPage({required this.pokeDetail});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mapColor[pokeDetail["type"][0]],
+      backgroundColor: mapColor[pokeDetail.type[0]],
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -34,18 +35,18 @@ class PokemonDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      pokeDetail["name"],
+                      pokeDetail.name,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40.0,
                           fontWeight: FontWeight.w800),
                     ),
                     Row(
-                      children: pokeDetail["type"]
+                      children: pokeDetail.type
                           .map<Widget>(
                             (item) => ItemTypeWidget(
                               type: item,
-                              type2: pokeDetail["type"][0],
+                              type2: pokeDetail.type[0],
                             ),
                           )
                           .toList(),
@@ -53,7 +54,7 @@ class PokemonDetailPage extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "#${pokeDetail["num"]}",
+                  "#${pokeDetail.num}",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30.0,
@@ -78,7 +79,7 @@ class PokemonDetailPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Image.network(
-                    pokeDetail["img"],
+                    pokeDetail.img,
                     fit: BoxFit.cover,
                     height: 140.0,
                   ),
@@ -116,10 +117,10 @@ class PokemonDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  ItemInfoWidget(data: pokeDetail["height"], title: "Height"),
-                  ItemInfoWidget(data: pokeDetail["weight"], title: "Weight"),
-                  ItemInfoWidget(data: pokeDetail["candy"], title: "Candy"),
-                  ItemInfoWidget(data: pokeDetail["egg"], title: "Egg"),
+                  ItemInfoWidget(data: pokeDetail.height, title: "Height"),
+                  ItemInfoWidget(data: pokeDetail.weight, title: "Weight"),
+                  ItemInfoWidget(data: pokeDetail.candy, title: "Candy"),
+                  ItemInfoWidget(data: pokeDetail.egg, title: "Egg"),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
@@ -134,8 +135,8 @@ class PokemonDetailPage extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                              children: pokeDetail["multipliers"] != null
-                                  ? pokeDetail["multipliers"]
+                              children: pokeDetail.multipliers != null
+                                  ? pokeDetail.multipliers!
                                       .map<Widget>(
                                         (item) => Padding(
                                           padding: const EdgeInsets.symmetric(
@@ -190,8 +191,8 @@ class PokemonDetailPage extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                              children: pokeDetail["weaknesses"] != null
-                                  ? pokeDetail["weaknesses"]
+                              children: pokeDetail.weaknesses != null
+                                  ? pokeDetail.weaknesses!
                                       .map<Widget>(
                                         (item) => Padding(
                                           padding: const EdgeInsets.symmetric(
@@ -246,8 +247,8 @@ class PokemonDetailPage extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                              children: pokeDetail["next_evolution"] != null
-                                  ? pokeDetail["next_evolution"]
+                              children: pokeDetail.nextEvolution != null
+                                  ? pokeDetail.nextEvolution!
                                       .map<Widget>(
                                         (item) => Padding(
                                           padding: const EdgeInsets.symmetric(
